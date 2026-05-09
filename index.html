@@ -96,6 +96,12 @@
         <div class="clock" id="realtime-clock">10:42 AM</div>
       </div>
       <div class="header-actions">
+        <button class="icon-btn ripple" onclick="lockDevice()" title="Lock Screen">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+        </button>
         <button class="icon-btn ripple" onclick="toggleTheme()" id="theme-toggle-btn">
           <!-- Icon injected via theme.js -->
         </button>
@@ -128,14 +134,16 @@
 
           <!-- Action Buttons -->
           <div class="action-row">
-            <button class="btn btn-primary ripple" onclick="switchTab('contact')">
+            <button class="btn btn-primary ripple" onclick="switchTab('about')">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
               </svg>
-              Message
+              About Me
             </button>
-            <button class="btn btn-secondary ripple" onclick="alert('Resume downloaded!')">
+            <button class="btn btn-secondary ripple" onclick="window.open('https://1drv.ms/w/c/9bd159b6e8fd61e1/IQAjwEDEDJLKRZ95APoz87IgAX-yf7sbrWT3bEJgpa1GNwE?e=S7BZf4', '_blank')">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
@@ -423,38 +431,66 @@
       </div>
 
       <!-- ----------------------------------------
-         CONTACT SECTION
+         ABOUT SECTION
     ----------------------------------------- -->
-      <div class="view" id="view-contact">
-        <div class="contact-wrapper">
-          <div class="chat-date">Today</div>
-
-          <div class="chat-container" id="contact-chat">
-            <div class="chat-bubble chat-received">
-              <div class="bubble-text">Hey there! 👋 I'm Himanshu's automated assistant.</div>
-              <div class="bubble-time">Just now</div>
-            </div>
-
-            <div class="chat-bubble chat-received">
-              <div class="bubble-text">Are you looking to hire, collaborate, or just say hi? Drop a message below!</div>
-              <div class="bubble-time">Just now</div>
-            </div>
-
-            <div class="typing-indicator" id="typing-indicator">
-              <span></span><span></span><span></span>
+      <div class="view" id="view-about">
+        <div class="about-wrapper">
+          <div class="section-title">Biography</div>
+          <div class="about-card ripple">
+            <div class="about-content">
+              <p>I am a dedicated <strong>Machine Learning Explorer</strong> and <strong>Backend Architect</strong>. My journey in tech is driven by a fascination with how data can be transformed into intelligent actions.</p>
+              <p>I specialize in building robust backend systems that power modern applications, while constantly experimenting with new AI models and neural network architectures.</p>
             </div>
           </div>
 
-          <div class="contact-input-area">
-            <input type="text" id="chat-input" class="contact-input" placeholder="Message..."
-              onkeypress="handleKeyPress(event)">
-            <button class="contact-send ripple" onclick="sendMessage()">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="22" y1="2" x2="11" y2="13"></line>
-                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-              </svg>
-            </button>
+          <div class="section-title">Personal Details</div>
+          <div class="about-card" style="padding: 0; overflow: hidden; margin-top: 0;">
+            <div class="links-list" style="box-shadow: none; border-radius: 0;">
+              <div class="link-item">
+                <div class="link-left">
+                  <div class="link-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                  </div>
+                  Location
+                </div>
+                <div class="link-value">Bangalore, India</div>
+              </div>
+              <div class="link-item">
+                <div class="link-left">
+                  <div class="link-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                      <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                  </div>
+                  Email
+                </div>
+                <div class="link-value">himanshu@mandal.me</div>
+              </div>
+              <div class="link-item" style="border-bottom: none;">
+                <div class="link-left">
+                  <div class="link-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                    </svg>
+                  </div>
+                  Status
+                </div>
+                <div class="link-value">Open to Collaborations</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="section-title">Interests</div>
+          <div class="tags" style="padding: 4px 4px 20px 4px; gap: 10px;">
+            <span class="tag">Artificial Intelligence</span>
+            <span class="tag">System Design</span>
+            <span class="tag">Open Source</span>
+            <span class="tag">UI/UX</span>
+            <span class="tag">Cloud Native</span>
           </div>
         </div>
       </div>
@@ -505,13 +541,15 @@
         Journey
       </div>
 
-      <div class="nav-item ripple" data-tab="contact" onclick="switchTab('contact')">
+      <div class="nav-item ripple" data-tab="about" onclick="switchTab('about')">
         <div class="nav-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
           </svg>
         </div>
-        Contact
+        About
       </div>
     </nav>
 
@@ -525,7 +563,7 @@
   <script src="js/navbar.js"></script>
   <script src="js/animations.js"></script>
   <script src="js/projects.js"></script>
-  <script src="js/contact.js"></script>
+  <script src="js/about.js"></script>
   <script src="js/lockscreen.js"></script>
   <script src="js/dynamic-island.js"></script>
 

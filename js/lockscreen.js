@@ -26,24 +26,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const unlock = () => {
         lockScreen.classList.add('unlocked');
         
-        // Animate the app container - logic removed to match new design
-
         // Enable scrolling on body
         setTimeout(() => {
             document.body.style.overflow = 'auto';
-            // Optional: remove from DOM or set display none after animation
-            // lockScreen.style.display = 'none';
         }, 800);
         
-        // Vibrate if supported
-        
-        // Vibrate if supported
         if (window.navigator.vibrate) {
             window.navigator.vibrate(10);
         }
         
-        // Dispatch unlock event for other components
         document.dispatchEvent(new CustomEvent('unlock'));
+    };
+
+    // Lock function (exposed globally)
+    window.lockDevice = () => {
+        lockScreen.classList.remove('unlocked');
+        document.body.style.overflow = 'hidden';
+        
+        if (window.navigator.vibrate) {
+            window.navigator.vibrate([10, 30, 10]);
+        }
+        
+        document.dispatchEvent(new CustomEvent('lock'));
     };
 
     // Unlock on click/tap

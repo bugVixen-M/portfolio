@@ -142,7 +142,72 @@ body {
 .bubble-text { font-size: 14px; line-height: 1.5; opacity: 0.9; }
 .bubble-time { font-size: 10px; opacity: 0.6; text-align: right; margin-top: 8px; display: flex; align-items: center; justify-content: flex-end; gap: 4px; font-weight: 500; }
 
-/* Contact */
+/* About Section */
+.about-wrapper { 
+  padding: 24px 20px 60px; 
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.about-card { 
+  background: var(--bg-secondary); 
+  border-radius: var(--radius-lg); 
+  padding: 28px; 
+  margin-bottom: 12px; 
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.about-content p { 
+  font-size: 15.5px; 
+  line-height: 1.7; 
+  color: var(--text-primary); 
+  margin-bottom: 18px; 
+}
+
+.about-content p:last-child { margin-bottom: 0; }
+
+.link-value { 
+  font-size: 14px; 
+  color: var(--text-secondary); 
+  font-weight: 500; 
+}
+
+.about-wrapper .section-title {
+  margin-top: 20px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.about-wrapper .section-title:first-child {
+  margin-top: 0;
+}
+
+.about-wrapper .tag {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  padding: 8px 16px;
+  font-size: 13px;
+  transition: all 0.3s ease;
+}
+
+.about-wrapper .tag:hover {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* Contact (Legacy or Future use) */
 .contact-wrapper { display: flex; flex-direction: column; height: calc(100vh - 160px - var(--safe-bottom)); }
 .chat-container { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; padding-bottom: 16px; scroll-behavior: smooth; }
 .chat-container::-webkit-scrollbar { width: 0; }

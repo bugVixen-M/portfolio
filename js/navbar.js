@@ -3,7 +3,7 @@ const titles = {
   'projects': 'Projects',
   'skills': 'Tech Stack',
   'journey': 'Experience',
-  'contact': 'Himanshu Mandal'
+  'about': 'About Me'
 };
 
 function switchTab(tabId) {
