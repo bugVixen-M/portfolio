@@ -3,13 +3,18 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (!island) return;
 
+    const isLocked = () => !document.getElementById('lock-screen').classList.contains('unlocked');
+
     // Toggle expansion on click
     island.addEventListener('click', () => {
+        if (isLocked()) return;
         island.classList.toggle('expanded');
     });
 
     // Function to show a "notification" in the island
     window.showIslandNotification = (title, subtitle, iconHtml, autoCollapse = true) => {
+        if (isLocked()) return;
+        
         const titleEl = island.querySelector('.island-title');
         const subtitleEl = island.querySelector('.island-subtitle');
         const leftIcon = island.querySelector('.island-left');
@@ -34,6 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Hover Interaction
     island.addEventListener('mouseenter', () => {
+        if (isLocked()) return;
+        
         island.classList.add('manual-expand');
         window.showIslandNotification(
             'Hire Me',

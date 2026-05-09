@@ -3,7 +3,8 @@ const titles = {
   'projects': 'Projects',
   'skills': 'Tech Stack',
   'journey': 'Experience',
-  'about': 'About Me'
+  'about': 'About Me',
+  'contact': 'AI Assistant'
 };
 
 function switchTab(tabId) {
