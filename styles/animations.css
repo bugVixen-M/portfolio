@@ -1,0 +1,96 @@
+/* Global Transitions for smooth theme switching & interactions */
+.header, .profile-card, .widget, .links-list, .project-card, .skills-card, .chat-received, .chat-sent, .contact-input-area, .bottom-nav {
+  transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.4s ease;
+}
+
+/* Ripple Effect */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+.ripple::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.4) 10%, transparent 10.01%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(10, 10);
+  opacity: 0;
+  transition: transform 0.5s, opacity 1s;
+}
+[data-theme="light"] .ripple::after {
+  background-image: radial-gradient(circle, rgba(0,0,0,0.1) 10%, transparent 10.01%);
+}
+.ripple:active::after {
+  transform: scale(0, 0);
+  opacity: 1;
+  transition: 0s;
+}
+
+/* Views Animation */
+.view {
+  display: none;
+  padding: 16px;
+  animation: fadeSlideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+}
+.view.active {
+  display: block;
+}
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes popIn {
+  0% { opacity: 0; transform: scale(0.9) translateY(10px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes typingBounce {
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50% { transform: translateY(-6px); opacity: 1; }
+}
+
+/* Hover and active states for specific elements */
+.icon-btn { transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.icon-btn:hover { transform: scale(1.05); color: var(--text-primary); }
+.icon-btn:active { transform: scale(0.95); }
+
+.nav-item { transition: color 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.nav-icon { transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.5); }
+.nav-item.active .nav-icon { transform: translateY(-4px) scale(1.15); }
+
+.btn { transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: scale(0.96); }
+
+.widget:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+
+.link-item { transition: background-color 0.2s ease, padding-left 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.link-item:hover { padding-left: 24px; background: var(--bg-tertiary); }
+.link-icon { transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.link-item:hover .link-icon { transform: scale(1.1) rotate(5deg); }
+
+.project-card:hover { transform: translateY(-6px) scale(1.02); box-shadow: var(--shadow-lg); }
+.project-image { transition: transform 0.5s ease; }
+.project-card:hover .project-image { transform: scale(1.05); }
+.get-btn { transition: all 0.2s ease; }
+
+.progress-fill { transition: width 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+
+.contact-input-area { transition: all 0.3s ease; }
+.contact-input-area:focus-within { transform: translateY(-2px); }
+.contact-send { transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.5); }
+.contact-send:hover { transform: scale(1.1); }
+.contact-send:active { transform: scale(0.9); }

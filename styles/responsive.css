@@ -1,0 +1,5 @@
+@media (min-width: 401px) {
+  #app {
+    border-radius: 40px;
+  }
+}

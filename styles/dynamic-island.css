@@ -1,0 +1,93 @@
+.dynamic-island-container {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+
+.dynamic-island {
+  width: 120px;
+  height: 36px;
+  background: #000;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  color: white;
+  pointer-events: auto;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.dynamic-island.expanded {
+  width: 320px;
+  height: 80px;
+  border-radius: 32px;
+  padding: 16px 20px;
+}
+
+.island-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.dynamic-island.expanded .island-content {
+  opacity: 1;
+}
+
+.island-left, .island-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.island-center {
+  flex: 1;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dynamic-island.expanded .island-center {
+  display: flex;
+}
+
+.island-title {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.island-subtitle {
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+.island-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--accent);
+}
+
+/* Animations */
+@keyframes islandPop {
+  0% { transform: scale(0.9); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.island-notification {
+  animation: islandPop 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}

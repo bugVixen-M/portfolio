@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Himans // Product Designer & Engineer</title>
+
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=SF+Pro+Display:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles/theme.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/animations.css">
+  <link rel="stylesheet" href="styles/responsive.css">
+  <link rel="stylesheet" href="styles/lockscreen.css">
+  <link rel="stylesheet" href="styles/dynamic-island.css">
+</head>
+
+<body>
+
+  <div id="app">
+
+    <!-- ==========================================
+         LOCK SCREEN
+    =========================================== -->
+    <div class="lock-screen" id="lock-screen">
+      <div class="lock-bg"></div>
+      
+      <div class="lock-info">
+        <div class="lock-time" id="lock-time">12:00</div>
+        <div class="lock-date" id="lock-date">Monday, January 1</div>
+      </div>
+
+      <div class="lock-content">
+        <div class="lock-avatar">HM</div>
+        <div class="unlock-hint" id="unlock-hint">
+          <svg class="fingerprint-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12"></path>
+            <path d="M5 12C5 8.13401 8.13401 5 12 5C15.866 5 19 8.13401 19 12"></path>
+            <path d="M8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12"></path>
+            <path d="M12 12V22"></path>
+            <path d="M12 15C10.3431 15 9 16.3431 9 18V22"></path>
+            <path d="M12 15C13.6569 15 15 16.3431 15 18V22"></path>
+          </svg>
+          <span>Touch ID or Click to unlock</span>
+        </div>
+      </div>
+
+      <div class="lock-footer">
+        <button class="lock-action-btn ripple" onclick="toggleTheme()" title="Toggle Theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         DYNAMIC ISLAND
+    =========================================== -->
+    <div class="dynamic-island-container">
+      <div class="dynamic-island" id="dynamic-island">
+        <div class="island-content">
+          <div class="island-left">
+            <div class="avatar" style="width: 24px; height: 24px; font-size: 10px;">HM</div>
+          </div>
+          <div class="island-center">
+            <div class="island-title">Dynamic Island</div>
+            <div class="island-subtitle">Active Now</div>
+          </div>
+          <div class="island-right">
+            <div class="online-badge" style="position: static; width: 8px; height: 8px; border: none;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================
+       HEADER COMPONENT
+  =========================================== -->
+    <header class="header">
+      <div class="header-info">
+        <div class="greeting" id="dynamic-greeting">Good Morning</div>
+        <div class="clock" id="realtime-clock">10:42 AM</div>
+      </div>
+      <div class="header-actions">
+        <button class="icon-btn ripple" onclick="toggleTheme()" id="theme-toggle-btn">
+          <!-- Icon injected via theme.js -->
+        </button>
+      </div>
+    </header>
+
+    <!-- ==========================================
+       CONTENT AREA
+  =========================================== -->
+    <div class="content" id="content-area">
+
+      <!-- ----------------------------------------
+         HOME SECTION
+    ----------------------------------------- -->
+      <div class="view active" id="view-home">
+        <!-- Profile Widget -->
+        <div class="profile-card">
+          <div class="profile-header">
+            <div class="avatar-container">
+              <div class="avatar">HM</div>
+              <div class="online-badge"></div>
+            </div>
+            <div class="profile-info">
+              <div class="profile-name">Himans M</div>
+              <div class="profile-role">
+                <span id="typing-status">Backend Developer</span><span class="cursor"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="action-row">
+            <button class="btn btn-primary ripple" onclick="switchTab('contact')">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg>
+              Message
+            </button>
+            <button class="btn btn-secondary ripple" onclick="alert('Resume downloaded!')">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Resume
+            </button>
+          </div>
+        </div>
+
+        <!-- Stats Overview -->
+        <div class="section-title">Overview</div>
+        <div class="widgets-grid">
+          <div class="widget ripple">
+            <div class="widget-value">5+</div>
+            <div class="widget-label">Years Experience</div>
+          </div>
+          <div class="widget ripple">
+            <div class="widget-value">50+</div>
+            <div class="widget-label">Projects Built</div>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="section-title">Links</div>
+        <div class="links-list">
+          <div class="link-item ripple" onclick="window.open('https://linkedin.com/in/yourusername')">
+            <div class="link-left">
+              <div class="link-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+              </div>
+              LinkedIn Profile
+            </div>
+
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-secondary)">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </div>
+          <div class="link-item ripple" onclick="switchTab('projects')">
+            <div class="link-left">
+              <div class="link-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                </svg>
+              </div>
+              Recent Projects
+            </div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-secondary)">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </div>
+
+          <div class="link-item ripple" onclick="switchTab('skills')">
+            <div class="link-left">
+              <div class="link-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+              </div>
+              Tech Stack
+            </div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-secondary)">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </div>
+
+          <div class="link-item ripple" onclick="window.open('https://github.com')">
+            <div class="link-left">
+              <div class="link-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                  </path>
+                </svg>
+              </div>
+              GitHub Profile
+            </div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-secondary)">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- ----------------------------------------
+         PROJECTS SECTION
+    ----------------------------------------- -->
+      <div class="view" id="view-projects">
+        <!-- Project 1 -->
+        <div class="project-card ripple">
+          <div class="project-image" style="background: linear-gradient(135deg, #e2e8f0, #cbd5e1);">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#334155" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+          </div>
+          <div class="project-content">
+            <div class="project-header">
+              <div class="project-title">Focus Productivity</div>
+              <button class="get-btn">GET</button>
+            </div>
+            <div class="project-desc">A minimal task manager designed to keep you focused. Native iOS app built with
+              React Native and Supabase.</div>
+            <div class="tags">
+              <span class="tag">React Native</span>
+              <span class="tag">Supabase</span>
+              <span class="tag">TypeScript</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card ripple">
+          <div class="project-image" style="background: linear-gradient(135deg, #f1f5f9, #e2e8f0);">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#475569" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+              </path>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+              <line x1="12" y1="22.08" x2="12" y2="12"></line>
+            </svg>
+          </div>
+          <div class="project-content">
+            <div class="project-header">
+              <div class="project-title">Himanshu Analytics</div>
+              <button class="get-btn">GET</button>
+            </div>
+            <div class="project-desc">Privacy-first web analytics dashboard with real-time tracking and beautiful data
+              visualizations.</div>
+            <div class="tags">
+              <span class="tag">Next.js</span>
+              <span class="tag">Tailwind</span>
+              <span class="tag">PostgreSQL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ----------------------------------------
+         SKILLS SECTION
+    ----------------------------------------- -->
+      <div class="view" id="view-skills">
+        <!-- Frontend Skills -->
+        <div class="skills-card">
+          <div class="section-title" style="padding-left:0;">Frontend & Design</div>
+          <div style="height: 16px;"></div>
+
+          <div class="skill-item">
+            <div class="skill-header">
+              <div class="skill-name">React / Next.js</div>
+              <div class="skill-pct">95%</div>
+            </div>
+            <div class="progress-bg">
+              <div class="progress-fill" data-width="95%"></div>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-header">
+              <div class="skill-name">TypeScript</div>
+              <div class="skill-pct">90%</div>
+            </div>
+            <div class="progress-bg">
+              <div class="progress-fill" data-width="90%"></div>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-header">
+              <div class="skill-name">UI/UX Design</div>
+              <div class="skill-pct">85%</div>
+            </div>
+            <div class="progress-bg">
+              <div class="progress-fill" data-width="85%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Backend Skills -->
+        <div class="skills-card">
+          <div class="section-title" style="padding-left:0;">Backend & Infrastructure</div>
+          <div style="height: 16px;"></div>
+
+          <div class="skill-item">
+            <div class="skill-header">
+              <div class="skill-name">Node.js</div>
+              <div class="skill-pct">88%</div>
+            </div>
+            <div class="progress-bg">
+              <div class="progress-fill" data-width="88%"></div>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-header">
+              <div class="skill-name">PostgreSQL</div>
+              <div class="skill-pct">82%</div>
+            </div>
+            <div class="progress-bg">
+              <div class="progress-fill" data-width="82%"></div>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-header">
+              <div class="skill-name">AWS / Cloud</div>
+              <div class="skill-pct">75%</div>
+            </div>
+            <div class="progress-bg">
+              <div class="progress-fill" data-width="75%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ----------------------------------------
+         EXPERIENCE / JOURNEY SECTION
+    ----------------------------------------- -->
+      <div class="view" id="view-journey">
+        <div class="chat-timeline">
+          <div class="chat-date">Today</div>
+
+          <div class="chat-bubble chat-received">
+            <div class="bubble-title">Senior Product Engineer</div>
+            <div class="bubble-subtitle">TechFlow Inc.</div>
+            <div class="bubble-text">Leading the frontend team to build next-generation enterprise software. Focused on
+              performance and accessible UI components.</div>
+            <div class="bubble-time">
+              Present
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent)">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+          </div>
+
+          <div class="chat-date">2022</div>
+
+          <div class="chat-bubble chat-sent">
+            <div class="bubble-title">Full Stack Developer</div>
+            <div class="bubble-subtitle">Creative Labs</div>
+            <div class="bubble-text">Built and scaled consumer-facing web applications serving 100k+ active users.
+              Implemented modern CI/CD pipelines.</div>
+            <div class="bubble-time">
+              2022 - 2024
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+          </div>
+
+          <div class="chat-date">2020</div>
+
+          <div class="chat-bubble chat-received">
+            <div class="bubble-title">Frontend Developer</div>
+            <div class="bubble-subtitle">StartUp Co.</div>
+            <div class="bubble-text">Developed responsive landing pages and internal dashboards using React and Redux.
+            </div>
+            <div class="bubble-time">
+              2020 - 2022
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent)">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ----------------------------------------
+         CONTACT SECTION
+    ----------------------------------------- -->
+      <div class="view" id="view-contact">
+        <div class="contact-wrapper">
+          <div class="chat-date">Today</div>
+
+          <div class="chat-container" id="contact-chat">
+            <div class="chat-bubble chat-received">
+              <div class="bubble-text">Hey there! 👋 I'm Himanshu's automated assistant.</div>
+              <div class="bubble-time">Just now</div>
+            </div>
+
+            <div class="chat-bubble chat-received">
+              <div class="bubble-text">Are you looking to hire, collaborate, or just say hi? Drop a message below!</div>
+              <div class="bubble-time">Just now</div>
+            </div>
+
+            <div class="typing-indicator" id="typing-indicator">
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+
+          <div class="contact-input-area">
+            <input type="text" id="chat-input" class="contact-input" placeholder="Message..."
+              onkeypress="handleKeyPress(event)">
+            <button class="contact-send ripple" onclick="sendMessage()">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div> <!-- /content -->
+
+    <!-- ==========================================
+       BOTTOM NAVIGATION COMPONENT
+  =========================================== -->
+    <nav class="bottom-nav" id="bottom-nav">
+      <div class="nav-item active ripple" data-tab="home" onclick="switchTab('home')">
+        <div class="nav-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+        </div>
+        Home
+      </div>
+
+      <div class="nav-item ripple" data-tab="projects" onclick="switchTab('projects')">
+        <div class="nav-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="3" y1="9" x2="21" y2="9"></line>
+            <line x1="9" y1="21" x2="9" y2="9"></line>
+          </svg>
+        </div>
+        Projects
+      </div>
+
+      <div class="nav-item ripple" data-tab="skills" onclick="switchTab('skills')">
+        <div class="nav-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+          </svg>
+        </div>
+        Skills
+      </div>
+
+      <div class="nav-item ripple" data-tab="journey" onclick="switchTab('journey')">
+        <div class="nav-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+        </div>
+        Journey
+      </div>
+
+      <div class="nav-item ripple" data-tab="contact" onclick="switchTab('contact')">
+        <div class="nav-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+          </svg>
+        </div>
+        Contact
+      </div>
+    </nav>
+
+  </div>
+
+  <!-- ==========================================
+     SCRIPTS
+=========================================== -->
+  <script src="js/theme.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/navbar.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/projects.js"></script>
+  <script src="js/contact.js"></script>
+  <script src="js/lockscreen.js"></script>
+  <script src="js/dynamic-island.js"></script>
+
+</body>
+
+</html>
